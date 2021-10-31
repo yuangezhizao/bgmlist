@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Header, Message, MessageContent, MessageHeader, Segment } from "semantic-ui-react";
+import styled from 'styled-components';
+import { Header, Message, MessageContent, MessageHeader, Segment } from 'semantic-ui-react';
 
 const StyledContainer = styled.div`
   display: flex;

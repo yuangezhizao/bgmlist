@@ -28,7 +28,9 @@ const Home = () => (
         <MessageHeader>欢迎访问 ヽ(･ω･´ﾒ)</MessageHeader>
         <MessageContent>这里是自己看过的全部日漫，真就老二次元了</MessageContent>
       </Message>
-      <Header as="h4" block attached="top" color="green">我的所有追番</Header>
+      <Header as="h4" block attached="top" color="green">
+        我的所有追番
+      </Header>
       <Segment attached color="green">
         <a href="/list">总览</a>
       </Segment>

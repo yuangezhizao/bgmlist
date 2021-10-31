@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Button, Icon } from 'semantic-ui-react';
+import styled from "styled-components";
+import { Header, Message, MessageContent, MessageHeader, Segment } from "semantic-ui-react";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -21,23 +21,20 @@ const StyledContainer = styled.div`
 const Home = () => (
   <StyledContainer>
     <div>
-      <h1>Next.js + Fomantic-UI!</h1>
+      <h1>总日漫表</h1>
     </div>
     <div>
-      <Button primary>Primary</Button>
-      <Button secondary>Secondary</Button>
-    </div>
-    <div>
-      <Icon name="home" size="big" />
-      <Icon name="star" size="big" />
-      <Icon name="heart" size="big" />
-      <Icon name="ambulance" size="big" />
-      <Icon name="lightbulb" size="big" />
-    </div>
-    <div className="footer">
-      <a href="https://github.com/skydiver/nextjs-semantic/">
-        https://github.com/skydiver/nextjs-semantic/
-      </a>
+      <Message positive>
+        <MessageHeader>欢迎访问 ヽ(･ω･´ﾒ)</MessageHeader>
+        <MessageContent>这里是自己看过的全部日漫，真就老二次元了
+        </MessageContent>
+      </Message>
+      <Header as="h4" block attached="top" color="green">
+        我的所有追番
+      </Header>
+      <Segment attached color="green">
+        <a href="/list">总览</a>
+      </Segment>
     </div>
   </StyledContainer>
 );

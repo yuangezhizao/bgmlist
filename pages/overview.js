@@ -69,9 +69,9 @@ function Bangumi() {
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                  {data.map((each) => (
-                    <Table.Row key={each.id}>
-                      <Table.Cell>{each.id}</Table.Cell>
+                  {data.map((each, index) => (
+                    <Table.Row key={data.length - index}>
+                      <Table.Cell>{data.length - index}</Table.Cell>
                       <Table.Cell>{each.season}</Table.Cell>
                       <Table.Cell>{each.title}</Table.Cell>
                       <Table.Cell>{each.type}</Table.Cell>

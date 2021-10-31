@@ -5,7 +5,7 @@ import Head from '../components/BaseHead';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 const API = 'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?overview';
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // `getStaticProps` 在服务器端执行
   const data = await fetcher(API);
   return {
@@ -18,14 +18,12 @@ export async function getServerSideProps() {
 }
 
 function Bangumi() {
-  const { data, error } = useSWR(API);
+  const { data } = useSWR(API, fetcher);
   // `data` 将始终是可用的。因为它在`fallback`中
 
   // there should be no `undefined` state
   console.log('Is data ready?', !!data);
 
-  if (error) return 'An error has occurred.';
-  if (!data) return 'Loading...';
   return (
     <>
       <Head />

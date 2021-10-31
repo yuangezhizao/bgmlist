@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Header, Message, MessageContent, MessageHeader, Segment } from 'semantic-ui-react';
+import Link from 'next/link';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -28,13 +29,16 @@ const Home = () => (
         <MessageHeader>欢迎访问 ヽ(･ω･´ﾒ)</MessageHeader>
         <MessageContent>这里是自己看过的全部日漫，真就老二次元了</MessageContent>
       </Message>
-      <Header as="h4" block attached="top" color="green">
+      <Header as="h4" block attached="top" color="blue">
         我的所有追番
       </Header>
-      <Segment attached color="green">
-        <a href="/list">总览</a>
+      <Segment attached color="blue">
+        <Link href="/overview">
+          <a>总览</a>
+        </Link>
       </Segment>
     </div>
   </StyledContainer>
 );
+
 export default Home;

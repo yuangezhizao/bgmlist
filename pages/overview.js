@@ -5,7 +5,7 @@ import Head from '../components/BaseHead';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 const API = 'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?overview';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // `getStaticProps` 在服务器端执行
   const data = await fetcher(API);
   return {

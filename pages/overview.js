@@ -18,6 +18,22 @@ export async function getStaticProps() {
   };
 }
 
+function get_color(season) {
+  if (season > 100) {
+    if (season % 100 < 3) {
+      return 'blue';
+    } else if (season % 100 < 6) {
+      return 'green';
+    } else if (season % 100 < 9) {
+      return 'yellow';
+    } else {
+      return 'orange';
+    }
+  } else {
+    return 'pink';
+  }
+}
+
 function Bangumi() {
   const { data } = useSWR(API, fetcher, {
     // revalidateIfStale: false,
@@ -73,8 +89,10 @@ function Bangumi() {
               <Table.Body>
                 {data.map((each, index) => (
                   <Table.Row key={data.length - index}>
-                    <Table.Cell>{data.length - index}</Table.Cell>
-                    <Table.Cell>{each.season}</Table.Cell>
+                    <Table.Cell className={get_color(each.season)}>
+                      {data.length - index}
+                    </Table.Cell>
+                    <Table.Cell className={get_color(each.season)}>{each.season}</Table.Cell>
                     <Table.Cell>{each.title}</Table.Cell>
                     <Table.Cell>{each.type}</Table.Cell>
                     <Table.Cell>{each.episodes}</Table.Cell>

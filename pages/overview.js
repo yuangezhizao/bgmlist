@@ -92,7 +92,13 @@ function Bangumi() {
                     <Table.Cell className={get_color(each.season)}>
                       {data.length - index}
                     </Table.Cell>
-                    <Table.Cell className={get_color(each.season)}>{each.season}</Table.Cell>
+                    <Popup
+                      trigger={
+                        <Table.Cell className={get_color(each.season)}>{each.season}</Table.Cell>
+                      }
+                      content={moment(each.run_time).utc().format('YYYY-MM-DD')}
+                      inverted
+                    />
                     <Table.Cell>{each.title}</Table.Cell>
                     <Table.Cell>{each.type}</Table.Cell>
                     <Table.Cell>{each.episodes}</Table.Cell>

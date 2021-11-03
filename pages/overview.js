@@ -86,16 +86,20 @@ function Bangumi() {
                       <Table.Cell>{each.blu_ray}</Table.Cell>
                       <Popup
                         trigger={
-                          <Table.Cell>{moment(each.insert_time).format('YYYY-MM-DD')}</Table.Cell>
+                          <Table.Cell>
+                            {moment(each.insert_time).utc().format('YYYY-MM-DD')}
+                          </Table.Cell>
                         }
-                        content={moment(each.insert_time).format('YYYY-MM-DD HH:mm:ss')}
+                        content={moment(each.insert_time).utc().format('YYYY-MM-DD HH:mm:ss')}
                         inverted
                       />
                       <Popup
                         trigger={
-                          <Table.Cell>{moment(each.update_time).format('YYYY-MM-DD')}</Table.Cell>
+                          <Table.Cell>
+                            {moment(each.update_time).utc().format('YYYY-MM-DD')}
+                          </Table.Cell>
                         }
-                        content={moment(each.update_time).format('YYYY-MM-DD HH:mm:ss')}
+                        content={moment(each.update_time).utc().format('YYYY-MM-DD HH:mm:ss')}
                         inverted
                       />
                     </Table.Row>

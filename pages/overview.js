@@ -34,6 +34,25 @@ function get_color(season) {
   }
 }
 
+function get_type(type) {
+  switch (type) {
+    case 1:
+      return '短篇';
+    case 2:
+      return '季番';
+    case 3:
+      return '半年番';
+    case 4:
+      return '全年番';
+    case 5:
+      return '剧场版';
+    case 6:
+      return 'OVA';
+    default:
+      return '-';
+  }
+}
+
 function Bangumi() {
   const { data } = useSWR(API, fetcher, {
     // revalidateIfStale: false,
@@ -100,7 +119,7 @@ function Bangumi() {
                       inverted
                     />
                     <Table.Cell>{each.title}</Table.Cell>
-                    <Table.Cell>{each.type}</Table.Cell>
+                    <Table.Cell>{get_type(each.type)}</Table.Cell>
                     <Table.Cell>{each.episodes}</Table.Cell>
                     <Table.Cell>{each.novel}</Table.Cell>
                     <Table.Cell>{each.comics}</Table.Cell>

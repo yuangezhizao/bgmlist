@@ -18,7 +18,11 @@ export async function getStaticProps() {
 }
 
 function Bangumi() {
-  const { data } = useSWR(API, fetcher);
+  const { data } = useSWR(API, fetcher, {
+    // revalidateIfStale: false,
+    revalidateOnFocus: false, //窗口聚焦时自动重新验证
+    revalidateOnReconnect: false //浏览器恢复网络连接时自动重新验证
+  });
   // `data` 将始终是可用的。因为它在`fallback`中
 
   // there should be no `undefined` state

@@ -1,5 +1,6 @@
 import useSWR, { SWRConfig } from 'swr';
-import { Grid, Header, HeaderContent, Icon, Menu, Table } from 'semantic-ui-react';
+import { Grid, Header, HeaderContent, Icon, Menu, Popup, Table } from 'semantic-ui-react';
+import moment from 'moment';
 import Head from '../components/BaseHead';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -66,8 +67,8 @@ function Bangumi() {
                     <Table.HeaderCell className="one wide">动画</Table.HeaderCell>
                     <Table.HeaderCell>追番状态</Table.HeaderCell>
                     <Table.HeaderCell>追番源</Table.HeaderCell>
-                    <Table.HeaderCell>插入时间</Table.HeaderCell>
-                    <Table.HeaderCell>更新时间</Table.HeaderCell>
+                    <Table.HeaderCell>数据插入时间</Table.HeaderCell>
+                    <Table.HeaderCell>数据更新时间</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
@@ -83,8 +84,20 @@ function Bangumi() {
                       <Table.Cell>{each.animation}</Table.Cell>
                       <Table.Cell>{each.status}</Table.Cell>
                       <Table.Cell>{each.blu_ray}</Table.Cell>
-                      <Table.Cell>{each.insert_time}</Table.Cell>
-                      <Table.Cell>{each.update_time}</Table.Cell>
+                      <Popup
+                        trigger={
+                          <Table.Cell>{moment(each.insert_time).format('YYYY-MM-DD')}</Table.Cell>
+                        }
+                        content={moment(each.insert_time).format('YYYY-MM-DD HH:mm:ss')}
+                        inverted
+                      />
+                      <Popup
+                        trigger={
+                          <Table.Cell>{moment(each.update_time).format('YYYY-MM-DD')}</Table.Cell>
+                        }
+                        content={moment(each.update_time).format('YYYY-MM-DD HH:mm:ss')}
+                        inverted
+                      />
                     </Table.Row>
                   ))}
                 </Table.Body>

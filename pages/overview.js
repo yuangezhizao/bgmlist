@@ -1,5 +1,5 @@
 import useSWR, { SWRConfig } from 'swr';
-import { Grid, Header, HeaderContent, Icon, Menu, Popup, Table } from 'semantic-ui-react';
+import { Grid, Header, HeaderContent, Icon, Image, Menu, Popup, Table } from 'semantic-ui-react';
 import moment from 'moment';
 import Head from '../components/BaseHead';
 
@@ -81,7 +81,21 @@ function Bangumi() {
                       <Table.Cell>{each.episodes}</Table.Cell>
                       <Table.Cell>{each.novel}</Table.Cell>
                       <Table.Cell>{each.comics}</Table.Cell>
-                      <Table.Cell>{each.animation}</Table.Cell>
+                      <Popup
+                        trigger={
+                          <Table.Cell>
+                            <Image
+                              src={
+                                'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?animation=' +
+                                each.animation
+                              }
+                              size="tiny"
+                            />
+                          </Table.Cell>
+                        }
+                        content={each.animation}
+                        inverted
+                      />
                       <Table.Cell>{each.status}</Table.Cell>
                       <Table.Cell>{each.blu_ray}</Table.Cell>
                       <Popup

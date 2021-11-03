@@ -80,47 +80,23 @@ function Bangumi() {
                     <Table.Cell>{each.episodes}</Table.Cell>
                     <Table.Cell>{each.novel}</Table.Cell>
                     <Table.Cell>{each.comics}</Table.Cell>
-                    {each.animation.indexOf(',') == -1 && (
-                      <Popup
-                        trigger={
-                          <Table.Cell>
+                    <Table.Cell>
+                      {each.animation.split(',').map((animation) => (
+                        <Popup
+                          trigger={
                             <Image
                               src={
                                 'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?animation=' +
-                                each.animation
+                                animation
                               }
                               size="tiny"
                             />
-                          </Table.Cell>
-                        }
-                        content={each.animation}
-                        inverted
-                      />
-                    )}
-                    {each.animation.indexOf(',') != -1 && (
-                      <Popup
-                        trigger={
-                          <Table.Cell>
-                            <Image
-                              src={
-                                'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?animation=' +
-                                each.animation.split(',')[0]
-                              }
-                              size="tiny"
-                            />
-                            <Image
-                              src={
-                                'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?animation=' +
-                                each.animation.split(',')[1]
-                              }
-                              size="tiny"
-                            />
-                          </Table.Cell>
-                        }
-                        content={each.animation}
-                        inverted
-                      />
-                    )}
+                          }
+                          content={animation}
+                          inverted
+                        />
+                      ))}
+                    </Table.Cell>
                     <Table.Cell>{each.status}</Table.Cell>
                     <Table.Cell>{each.blu_ray}</Table.Cell>
                     <Popup

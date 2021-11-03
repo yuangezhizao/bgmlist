@@ -83,6 +83,7 @@ function Bangumi() {
                     <Table.Cell>
                       {each.animation.split(',').map((animation) => (
                         <Popup
+                          key={animation}
                           trigger={
                             <Image
                               src={

@@ -101,6 +101,7 @@ function Bangumi() {
                   <Table.HeaderCell className="one wide">动画</Table.HeaderCell>
                   <Table.HeaderCell>追番状态</Table.HeaderCell>
                   <Table.HeaderCell>追番源</Table.HeaderCell>
+                  <Table.HeaderCell>吐了个槽</Table.HeaderCell>
                   <Table.HeaderCell>数据插入时间</Table.HeaderCell>
                   <Table.HeaderCell>数据更新时间</Table.HeaderCell>
                 </Table.Row>
@@ -143,6 +144,7 @@ function Bangumi() {
                     </Table.Cell>
                     <Table.Cell>{each.status}</Table.Cell>
                     <Table.Cell>{each.blu_ray}</Table.Cell>
+                    <Table.Cell>{each.tips}</Table.Cell>
                     <Popup
                       trigger={
                         <Table.Cell>

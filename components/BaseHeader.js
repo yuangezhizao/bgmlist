@@ -4,6 +4,7 @@ function BaseHeader() {
   return (
     <Head>
       <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
+      <link rel="canonical" href="https://bgmlist.yuangezhizao.cn/" />
       <title>远哥制造的总日漫表</title>
       <meta name="keywords" content="远哥制造的总日漫表,总日漫表,日漫,yuangezhizao" />
       <meta name="description" content="这里是远哥制造的总日漫表" />

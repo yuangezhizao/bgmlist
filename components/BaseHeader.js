@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-function BaseHead() {
+function BaseHeader() {
   return (
     <Head>
       <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
@@ -14,8 +14,31 @@ function BaseHead() {
       <link rel="dns-prefetch" href="//lab.yuangezhizao.cn" />
       <link rel="dns-prefetch" href="//www.yuangezhizao.cn" />
       <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQWLZTTVSN"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TQWLZTTVSN');
+      `
+        }}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?f78f90c034ccd566d0d778ad3ef4065e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+      `
+        }}
+      />
     </Head>
   );
 }
 
-export default BaseHead;
+export default BaseHeader;

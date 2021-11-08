@@ -1,7 +1,7 @@
 import useSWR, { SWRConfig } from 'swr';
 import { Grid, Header, HeaderContent, Icon, Image, Menu, Popup, Table } from 'semantic-ui-react';
 import moment from 'moment';
-import Head from '../components/BaseHead';
+import BaseHeader from '../components/BaseHeader';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 const API = 'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?overview';
@@ -66,7 +66,7 @@ function Bangumi() {
 
   return (
     <>
-      <Head />
+      <BaseHeader />
       <Grid centered>
         <Grid.Column wide={12}>
           <Menu pointing color="blue">

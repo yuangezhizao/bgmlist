@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Header, Message, MessageContent, MessageHeader, Segment } from 'semantic-ui-react';
 import Link from 'next/link';
-import BaseHead from '../components/BaseHead';
+import BaseHeader from '../components/BaseHeader';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const StyledContainer = styled.div`
 
 const Home = () => (
   <>
-    <BaseHead />
+    <BaseHeader />
     <StyledContainer>
       <div>
         <Header as="h1">总日漫表</Header>

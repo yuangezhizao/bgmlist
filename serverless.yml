@@ -1,0 +1,84 @@
+# https://github.com/serverless-components/tencent-http/blob/master/docs/configure.md
+component: http
+name: bgmlist
+org: yuangezhizao
+app: yuangezhizao
+stage: dev
+
+inputs:
+  region: ap-beijing
+  src:
+    dist: ./
+    hook: npm run now-build
+    exclude:
+      - .env
+      - 'node_modules/**'
+      - .vscode
+      - .idea
+#      - .next
+  faas:
+    framework: nextjs
+    runtime: Nodejs12.16
+    name: '${name}'
+    timeout: 10
+    memorySize: 128
+    environments:
+      - key: envKey
+        value: envValue
+    vpc:
+      vpcId: 'vpc-mrg5ak88'
+      subnetId: 'subnet-hqwa51dh'
+    layers:
+      - name: '${name}'
+        version: 1
+    tags:
+      - key: tagKey
+        value: tagValue
+  apigw:
+    isDisabled: true
+    id: service-3b29z9e1
+    name: '${name}'
+    api:
+      cors: false
+      timeout: 15
+      name: '${name}'
+      qualifier: $DEFAULT
+    protocols:
+#      - http
+      - https
+    environment: release
+    tags:
+      - key: tagKey
+        value: tagValue
+    customDomains:
+      - domain: bgmlist.yuangezhizao.cn
+        certId: r8ZCduJ9
+        customMap: true
+        pathMap:
+          - path: /
+            environment: release
+        protocols:
+#          - http
+          - https
+#    app:
+#      id: app-xxx
+#      name: app_demo
+#      description: app description
+#  assets:
+#    cos:
+#      bucket: static
+#      sources:
+#        - src: public
+#          targetDir: /
+#    cdn:
+#      area: mainland
+#      domain: abc.com
+#      autoRefresh: true
+#      refreshType: delete
+#      forceRedirect:
+#        switch: on
+#        redirectType: https
+#        redirectStatusCode: 301
+#      https:
+#        http2: on
+#        certId: 'abc'

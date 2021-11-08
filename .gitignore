@@ -95,3 +95,11 @@ typings/
 # End of https://www.gitignore.io/api/node
 
 .vercel
+
+# WebStorm
+.idea/*
+
+# misc
+.DS_Store
+
+.serverless

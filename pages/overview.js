@@ -131,7 +131,7 @@ function Bangumi() {
                           trigger={
                             <Image
                               src={
-                                'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?animation=' +
+                                '/api/bangumi?animation=' +
                                 animation
                               }
                               size="tiny"

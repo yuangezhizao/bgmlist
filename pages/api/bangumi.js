@@ -12,5 +12,5 @@ export default async function handler(req, res) {
   if (result.length !== 0) {
     res.redirect(302, result[0].pic);
   }
-  res.redirect(302, 'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?animation=' + animation);
+  res.redirect(302, 'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?animation=' + encodeURIComponent(animation));
 }

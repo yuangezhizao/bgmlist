@@ -30,7 +30,7 @@ inputs:
       subnetId: 'subnet-hqwa51dh'
     layers:
       - name: '${name}'
-        version: 1
+        version: 2
     tags:
       - key: tagKey
         value: tagValue

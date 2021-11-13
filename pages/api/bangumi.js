@@ -1,13 +1,8 @@
 const path = require('path');
 const csv = require('csvtojson');
 
-const dev = process.env.NODE_ENV !== 'production';
-let csvFilePath = '';
-if (dev === true) {
-  csvFilePath = './public/bangumi/animations.csv';
-} else {
-  csvFilePath = path.join(process.cwd(), 'public/bangumi/animations.csv');
-}
+// https://web.archive.org/web/20211113140226/https://medium.com/@boris.poehland.business/next-js-api-routes-how-to-read-files-from-directory-compatible-with-vercel-5fb5837694b9
+const csvFilePath = path.resolve('./public', 'bangumi/animations.csv');
 
 export default async function handler(req, res) {
   const { animation } = req.query;

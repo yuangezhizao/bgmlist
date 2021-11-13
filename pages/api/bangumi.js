@@ -1,11 +1,5 @@
 const csv = require('csvtojson');
-const dev = process.env.NODE_ENV !== 'production';
-var csvFilePath = '';
-if (dev === true) {
-  csvFilePath = './public/bangumi/animations.csv';
-} else {
-  csvFilePath = 'bangumi/animations.csv';
-}
+const csvFilePath = './public/bangumi/animations.csv';
 
 export default async function handler(req, res) {
   const { animation } = req.query;

@@ -2,8 +2,15 @@ import path from 'path';
 import getConfig from 'next/config';
 
 const csv = require('csvtojson');
-const csvFilePath = './public/bangumi/animations.csv';
 const { serverRuntimeConfig } = getConfig();
+const dev = process.env.NODE_ENV !== 'production';
+
+let csvFilePath;
+if (dev === true) {
+  csvFilePath = './public/bangumi/animations.csv';
+} else {
+  csvFilePath = './bangumi/animations.csv';
+}
 
 export default async function handler(req, res) {
   const { animation } = req.query;

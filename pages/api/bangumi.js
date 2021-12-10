@@ -1,20 +1,17 @@
 import path from 'path';
-import getConfig from 'next/config';
 
 const csv = require('csvtojson');
-const { serverRuntimeConfig } = getConfig();
-const dev = process.env.NODE_ENV !== 'production';
 
-let csvFilePath;
-if (dev === true) {
-  csvFilePath = './public/bangumi/animations.csv';
+let csvFilePath = process.cwd();
+if (process.env.NODE_ENV === 'production') {
+  csvFilePath = path.join(process.cwd(), './bangumi/animations.csv');
 } else {
-  csvFilePath = './bangumi/animations.csv';
+  csvFilePath = path.join(process.cwd(), './public/bangumi/animations.csv');
 }
 
 export default async function handler(req, res) {
   const { animation } = req.query;
-  const jsonArray = await csv().fromFile(path.join(serverRuntimeConfig.PROJECT_ROOT, csvFilePath));
+  const jsonArray = await csv().fromFile(csvFilePath);
   // console.log(animation);
   let result = jsonArray.filter(function (fp) {
     return fp.name === animation;

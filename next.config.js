@@ -1,3 +1,6 @@
 module.exports = {
-  outputFileTracing: true
+  outputFileTracing: true,
+  serverRuntimeConfig: {
+    PROJECT_ROOT: __dirname
+  }
 };

@@ -1,0 +1,32 @@
+{
+    "version": "2.0",
+    "envId": "{{envId}}",
+    "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+    "framework": {
+        "name": "bgmlist",
+        "plugins": {
+            "client": {
+                "use": "@cloudbase/framework-plugin-next",
+                "inputs": {
+                    "entry": "./",
+                    "path": "/",
+                    "name": "bgmlist",
+                    "buildCommand": "npm run now-build",
+                    "functionOptions": {
+                        "name": "bgmlist",
+                        "timeout": 10,
+                        "runtime": "Nodejs12.16",
+                        "memorySize": 256,
+                        "installDependency": true,
+                        "publicNet": "ENABLE",
+                        "eip": "DISABLE",
+                        "envVariables": {
+                            "envKey": "envValue",
+                            "SERVERLESS": 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

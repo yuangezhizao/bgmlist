@@ -48,7 +48,7 @@ jobs:
       #         version: # optional
 
       - name: Install CloudBase-Cli
-        run: npm install cloudbase/cli -g
+        run: npm install @cloudbase/cli -g
 
       - name: Deploy to Tencent CloudBase
         env:

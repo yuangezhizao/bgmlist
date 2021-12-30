@@ -16,6 +16,7 @@ function BaseHeader() {
       <link rel="dns-prefetch" href="//www.yuangezhizao.cn" />
       <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQWLZTTVSN"></script>
+      <script defer src="https://hm.baidu.com/hm.js?f78f90c034ccd566d0d778ad3ef4065e"></script>
       <script
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || [];
@@ -23,18 +24,7 @@ function BaseHeader() {
         gtag('js', new Date());
 
         gtag('config', 'G-TQWLZTTVSN');
-      `
-        }}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `var _hmt = _hmt || [];
-        (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?f78f90c034ccd566d0d778ad3ef4065e";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+        var _hmt = _hmt || [];
       `
         }}
       />

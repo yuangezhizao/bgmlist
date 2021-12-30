@@ -17,6 +17,7 @@ function BaseHeader() {
       <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQWLZTTVSN"></script>
       <script defer src="https://hm.baidu.com/hm.js?f78f90c034ccd566d0d778ad3ef4065e"></script>
+      <script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
       <script
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || [];
@@ -25,6 +26,13 @@ function BaseHeader() {
 
         gtag('config', 'G-TQWLZTTVSN');
         var _hmt = _hmt || [];
+        const aegis = new Aegis({
+            id: 'Gl3vyhE8zoaPXnglXJ', // 上报 id
+            uin: 'Anonymous', // 用户唯一 ID（可选）
+            reportApiSpeed: true, // 接口测速
+            reportAssetSpeed: true, // 静态资源测速
+            spa: true // spa 应用页面跳转的时候开启 pv 计算
+        });
       `
         }}
       />

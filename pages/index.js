@@ -18,7 +18,7 @@ const Home = () => (
       <IndexMenu />
       <div>
         <Message positive>
-          <MessageHeader as="h2" class="ui header">
+          <MessageHeader as="h2" className="ui header">
             欢迎访问 ヽ(･ω･´ﾒ)
           </MessageHeader>
           <p>

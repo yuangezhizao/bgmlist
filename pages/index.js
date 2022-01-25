@@ -1,36 +1,30 @@
-import styled from 'styled-components';
-import { Header, Message, MessageContent, MessageHeader, Segment } from 'semantic-ui-react';
+import {
+  Container,
+  Divider,
+  Header,
+  Message,
+  MessageContent,
+  MessageHeader,
+  Segment
+} from 'semantic-ui-react';
 import Link from 'next/link';
 import BaseHeader from '../components/BaseHeader';
-
-const StyledContainer = styled.div`
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  div {
-    margin: 10px 0 10px 0;
-  }
-
-  .footer {
-    padding: 20px;
-    border-top: solid 1px #aaa;
-  }
-`;
+import IndexMenu from '../components/IndexMenu';
 
 const Home = () => (
   <>
     <BaseHeader />
-    <StyledContainer>
-      <div>
-        <Header as="h1">总日漫表</Header>
-      </div>
+    <Container>
+      <IndexMenu />
       <div>
         <Message positive>
-          <MessageHeader>欢迎访问 ヽ(･ω･´ﾒ)</MessageHeader>
-          <MessageContent>这里是自己看过的全部日漫，真就老二次元了</MessageContent>
+          <MessageHeader as="h2" class="ui header">
+            欢迎访问 ヽ(･ω･´ﾒ)
+          </MessageHeader>
+          <p>
+            这里是自己看过的全部日漫，真就老二次元了！
+            <a href="https://www.yuangezhizao.cn/articles/nodejs/Next.js/bgmlist.html">查看简介</a>
+          </p>
         </Message>
         <Header as="h4" block attached="top" color="blue">
           我的所有追番
@@ -41,7 +35,8 @@ const Home = () => (
           </Link>
         </Segment>
       </div>
-      <div style={{ textAlign: "center" }}>
+      <Divider />
+      <div style={{ textAlign: 'center' }}>
         <footer>
           <Message info>
             <MessageContent>
@@ -51,7 +46,7 @@ const Home = () => (
           </Message>
         </footer>
       </div>
-    </StyledContainer>
+    </Container>
   </>
 );
 

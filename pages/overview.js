@@ -129,13 +129,7 @@ function Bangumi() {
                         <Popup
                           key={animation}
                           trigger={
-                            <Image
-                              src={
-                                '/api/bangumi?animation=' +
-                                animation
-                              }
-                              size="tiny"
-                            />
+                            <Image src={'/api/bangumi?animation=' + animation} size="tiny" />
                           }
                           content={animation}
                           inverted

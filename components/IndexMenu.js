@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { Icon, Menu } from 'semantic-ui-react';
 
 export default class IndexMenu extends Component {
-  state = { activeItem: 'home' };
-
   render() {
-    const { activeItem } = this.state;
+    const { activeItem } = { activeItem: 'home' };
 
     return (
       <Menu pointing>

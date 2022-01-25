@@ -41,6 +41,16 @@ const Home = () => (
           </Link>
         </Segment>
       </div>
+      <div style={{ textAlign: "center" }}>
+        <footer>
+          <Message info>
+            <MessageContent>
+              yuangezhizao © 2021 - 2022<br></br>
+              Powered by Tencent Cloud Serverless
+            </MessageContent>
+          </Message>
+        </footer>
+      </div>
     </StyledContainer>
   </>
 );

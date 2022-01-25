@@ -6,7 +6,10 @@ function BaseHeader() {
       <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
       <link rel="canonical" href="https://bgmlist.yuangezhizao.cn/" />
       <title>远哥制造的总日漫表</title>
-      <meta name="keywords" content="远哥制造的总日漫表,远哥制造的追番表,总日漫表,追番表,日漫,追番,yuangezhizao,animation" />
+      <meta
+        name="keywords"
+        content="远哥制造的总日漫表,远哥制造的追番表,总日漫表,追番表,日漫,追番,yuangezhizao,animation"
+      />
       <meta name="description" content="这里是远哥制造的总日漫表" />
       <meta name="author" content="yuangezhizao" />
       <meta name="Copyright" content="Copyright yuangezhizao All Rights Reserved." />

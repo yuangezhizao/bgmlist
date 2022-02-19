@@ -1,6 +1,11 @@
 import { Message, MessageContent } from 'semantic-ui-react';
 
-console.log(process.env.VERCEL === '1' ? 'Vercel' : 'Tencent Cloud Serverless')
+let deployed_on = '';
+if (process.env.VERCEL === '1') {
+    deployed_on = 'Vercel';
+} else {
+    deployed_on = 'Tencent Cloud Serverless';
+}
 
 function BaseFooter() {
   return (
@@ -9,7 +14,7 @@ function BaseFooter() {
         <Message info>
           <MessageContent>
             yuangezhizao © 2021 - 2022<br></br>
-            Powered by {process.env.VERCEL === '1' ? 'Vercel' : 'Tencent Cloud Serverless'}
+            Powered by {deployed_on}
             {process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA && (
               <>
                 <br></br>

@@ -1,5 +1,7 @@
 import { Message, MessageContent } from 'semantic-ui-react';
 
+console.log(process.env.VERCEL === '1' ? 'Vercel' : 'Tencent Cloud Serverless')
+
 function BaseFooter() {
   return (
     <div style={{ textAlign: 'center' }}>

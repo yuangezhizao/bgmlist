@@ -1,14 +1,7 @@
-import {
-  Container,
-  Divider,
-  Header,
-  Message,
-  MessageContent,
-  MessageHeader,
-  Segment
-} from 'semantic-ui-react';
+import { Container, Divider, Header, Message, MessageHeader, Segment } from 'semantic-ui-react';
 import Link from 'next/link';
 import BaseHeader from '../components/BaseHeader';
+import BaseFooter from '../components/BaseFooter';
 import IndexMenu from '../components/IndexMenu';
 
 const Home = () => (
@@ -36,16 +29,7 @@ const Home = () => (
         </Segment>
       </div>
       <Divider />
-      <div style={{ textAlign: 'center' }}>
-        <footer>
-          <Message info>
-            <MessageContent>
-              yuangezhizao © 2021 - 2022<br></br>
-              Powered by Tencent Cloud Serverless
-            </MessageContent>
-          </Message>
-        </footer>
-      </div>
+      <BaseFooter />
     </Container>
   </>
 );

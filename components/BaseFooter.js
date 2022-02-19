@@ -7,7 +7,7 @@ function BaseFooter() {
         <Message info>
           <MessageContent>
             yuangezhizao © 2021 - 2022<br></br>
-            Powered by {process.env.VERCEL === 1 ? 'Vercel' : 'Tencent Cloud Serverless'}
+            Powered by {process.env.VERCEL === '1' ? 'Vercel' : 'Tencent Cloud Serverless'}
             {process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA && (
               <>
                 <br></br>
@@ -15,7 +15,9 @@ function BaseFooter() {
                   href={
                     'https://github.com/yuangezhizao/bgmlist/commit/' +
                     process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA
-                  }>#{process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA.substring(0, 7)}</a>
+                  }>
+                  #{process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA.substring(0, 7)}
+                </a>
               </>
             )}
           </MessageContent>

@@ -1,7 +1,18 @@
 import useSWR, { SWRConfig } from 'swr';
-import { Grid, Header, HeaderContent, Icon, Image, Menu, Popup, Table } from 'semantic-ui-react';
+import {
+  Divider,
+  Grid,
+  Header,
+  HeaderContent,
+  Icon,
+  Image,
+  Menu,
+  Popup,
+  Table
+} from 'semantic-ui-react';
 import moment from 'moment';
 import BaseHeader from '../components/BaseHeader';
+import BaseFooter from '../components/BaseFooter';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 const API = 'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?overview';
@@ -164,6 +175,8 @@ function Bangumi() {
           </Grid.Column>
         </Grid.Column>
       </Grid>
+      <Divider />
+      <BaseFooter />
     </>
   );
 }

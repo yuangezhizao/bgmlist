@@ -1,3 +1,5 @@
+import _ from 'lodash';
+import React from 'react';
 import useSWR, { SWRConfig } from 'swr';
 import {
   Divider,
@@ -64,6 +66,28 @@ function get_type(type) {
   }
 }
 
+// Refer: https://react.semantic-ui.com/collections/table/#variations-sortable
+function exampleReducer(state, action) {
+  switch (action.type) {
+    case 'CHANGE_SORT':
+      if (state.column === action.column) {
+        return {
+          ...state,
+          data: state.data.slice().reverse(),
+          direction: state.direction === 'ascending' ? 'descending' : 'ascending'
+        };
+      }
+
+      return {
+        column: action.column,
+        data: _.sortBy(state.data, [action.column]),
+        direction: 'ascending'
+      };
+    default:
+      throw new Error();
+  }
+}
+
 function Bangumi() {
   const { data } = useSWR(API, fetcher, {
     // revalidateIfStale: false,
@@ -74,6 +98,15 @@ function Bangumi() {
 
   // there should be no `undefined` state
   console.log('Is data ready?', !!data);
+
+  const [state, dispatch] = React.useReducer(exampleReducer, {
+    column: null,
+    data: data,
+    direction: null
+  });
+  let { column, sorted_data, direction } = state;
+  sorted_data = sorted_data || data;
+  // console.table(sorted_data);
 
   return (
     <>
@@ -102,26 +135,81 @@ function Bangumi() {
             <Table compact sortable celled unstackable striped color="blue">
               <Table.Header>
                 <Table.Row positive>
-                  <Table.HeaderCell>No.</Table.HeaderCell>
-                  <Table.HeaderCell>放送季度</Table.HeaderCell>
-                  <Table.HeaderCell>番剧名称</Table.HeaderCell>
-                  <Table.HeaderCell>番剧类型</Table.HeaderCell>
-                  <Table.HeaderCell>番剧话数</Table.HeaderCell>
-                  <Table.HeaderCell className="one wide">轻小说</Table.HeaderCell>
-                  <Table.HeaderCell className="one wide">漫画</Table.HeaderCell>
-                  <Table.HeaderCell className="one wide">动画</Table.HeaderCell>
-                  <Table.HeaderCell>追番状态</Table.HeaderCell>
-                  <Table.HeaderCell>追番源</Table.HeaderCell>
-                  <Table.HeaderCell>吐了个槽</Table.HeaderCell>
-                  <Table.HeaderCell>数据插入时间</Table.HeaderCell>
-                  <Table.HeaderCell>数据更新时间</Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'index' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'index' })}>
+                    No.
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'season' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'season' })}>
+                    放送季度
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'title' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'title' })}>
+                    番剧名称
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'type' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'type' })}>
+                    番剧类型
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'episodes' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'episodes' })}>
+                    番剧话数
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    className="one wide"
+                    sorted={column === 'novel' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'novel' })}>
+                    轻小说
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    className="one wide"
+                    sorted={column === 'comics' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'comics' })}>
+                    漫画
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    className="one wide"
+                    sorted={column === 'animation' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'animation' })}>
+                    动画
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'status' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'status' })}>
+                    追番状态
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'blu_ray' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'blu_ray' })}>
+                    追番源
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'tips' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'tips' })}>
+                    吐了个槽
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'insert_time' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'insert_time' })}>
+                    数据插入时间
+                  </Table.HeaderCell>
+                  <Table.HeaderCell
+                    sorted={column === 'update_time' ? direction : null}
+                    onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'update_time' })}>
+                    数据更新时间
+                  </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {data.map((each, index) => (
-                  <Table.Row key={data.length - index}>
+                {sorted_data.map((each, index) => (
+                  <Table.Row key={sorted_data.length - index}>
                     <Table.Cell className={get_color(each.season)}>
-                      {data.length - index}
+                      {sorted_data.length - index}
                     </Table.Cell>
                     <Popup
                       trigger={

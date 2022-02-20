@@ -9,12 +9,7 @@ console.log(mainFolder);
 const files = fs.readdirSync(path.join(process.cwd(), `public`));
 console.log(files);
 
-let csvFilePath = '';
-if (process.env.NODE_ENV === 'production') {
-  csvFilePath = path.join(process.cwd(), './bangumi/animations.csv');
-} else {
-  csvFilePath = path.join(process.cwd(), './public/bangumi/animations.csv');
-}
+const csvFilePath = path.join(process.cwd(), './public/bangumi/animations.csv');
 
 export const config = {
   unstable_includeFiles: ['public']

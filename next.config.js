@@ -3,5 +3,8 @@ module.exports = {
   basePath: '',
   env: {
     DEPLOYED_ON
+  },
+  experimental: {
+    outputStandalone: true
   }
 };

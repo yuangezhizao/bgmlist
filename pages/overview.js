@@ -73,14 +73,14 @@ function exampleReducer(state, action) {
       if (state.column === action.column) {
         return {
           ...state,
-          data: state.data.slice().reverse(),
+          sorted_data: state.sorted_data.slice().reverse(),
           direction: state.direction === 'ascending' ? 'descending' : 'ascending'
         };
       }
 
       return {
         column: action.column,
-        data: _.sortBy(state.data, [action.column]),
+        sorted_data: _.sortBy(state.sorted_data, [action.column]),
         direction: 'ascending'
       };
     default:
@@ -101,12 +101,10 @@ function Bangumi() {
 
   const [state, dispatch] = React.useReducer(exampleReducer, {
     column: null,
-    data: data,
+    sorted_data: data,
     direction: null
   });
-  let { column, sorted_data, direction } = state;
-  sorted_data = sorted_data || data;
-  // console.table(sorted_data);
+  const { column, sorted_data, direction } = state;
 
   return (
     <>

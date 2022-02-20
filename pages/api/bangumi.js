@@ -1,14 +1,8 @@
-import fs from 'fs';
 import path from 'path';
 
 const csv = require('csvtojson');
 
 // Refer: https://github.com/vercel/next.js/discussions/32236?sort=top#discussioncomment-1959180
-const mainFolder = fs.readdirSync(process.cwd());
-console.log(mainFolder);
-const files = fs.readdirSync(path.join(process.cwd(), `public`));
-console.log(files);
-
 const csvFilePath = path.join(process.cwd(), './public/bangumi/animations.csv');
 
 export const config = {
@@ -18,7 +12,6 @@ export const config = {
 export default async function handler(req, res) {
   const { animation } = req.query;
   const jsonArray = await csv().fromFile(csvFilePath);
-  // const jsonArray = await csv().fromString(csvString);
   // console.log(animation);
   let result = jsonArray.filter(function (fp) {
     return fp.name === animation;

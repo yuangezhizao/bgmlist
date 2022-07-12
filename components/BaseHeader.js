@@ -18,6 +18,7 @@ function BaseHeader() {
       <link rel="dns-prefetch" href="//lab.yuangezhizao.cn" />
       <link rel="dns-prefetch" href="//www.yuangezhizao.cn" />
       <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+      <script async defer data-website-id="c38f5aa2-1ead-418c-aaae-45b937ab9811" src="https://umami.yuangezhizao.vercel.app/mikecao.js"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQWLZTTVSN"></script>
       <script defer src="https://hm.baidu.com/hm.js?f78f90c034ccd566d0d778ad3ef4065e"></script>
       <script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>

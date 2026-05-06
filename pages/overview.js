@@ -228,8 +228,8 @@ function Bangumi() {
                           trigger={
                             <Image
                               src={
-                                'https://lab.yuangezhizao.cn/api/v0.0.1/bangumi?animation=' +
-                                encodeURIComponent(animation)
+                                'https://i1.yuangezhizao.cn/anime/animation_studio/' +
+                                encodeURIComponent(animation) + '.png'
                               }
                               size="tiny"
                             />

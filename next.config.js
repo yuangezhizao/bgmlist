@@ -1,7 +1,13 @@
-const DEPLOYED_ON = process.env.VERCEL === '1' ? 'Vercel' : 'Tencent Cloud Serverless';
+const DEPLOYED_ON = process.env.VERCEL === '1' ? 'Vercel' : 'EdgeOne Pages';
 module.exports = {
   basePath: '',
+  images: {
+    unoptimized: true
+  },
   env: {
     DEPLOYED_ON
+  },
+  experimental: {
+    forceSwcTransforms: true
   }
 };

@@ -226,7 +226,13 @@ function Bangumi() {
                         <Popup
                           key={animation}
                           trigger={
-                            <Image src={'/api/bangumi?animation=' + animation} size="tiny" />
+                            <Image
+                              src={
+                                'https://i1.yuangezhizao.cn/anime/animation_studio/' +
+                                encodeURIComponent(animation) + '.png'
+                              }
+                              size="tiny"
+                            />
                           }
                           content={animation}
                           inverted

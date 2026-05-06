@@ -4,12 +4,15 @@
   "version": "6.0.0",
   "author": "Martín M.",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "now-build": "npm run semantic:build && npm run build",
+    "now-build": "npm run semantic:build && npm run build && node scripts/patch-export.js && next export",
     "semantic:build": "cd .semantic && gulp build-css build-assets",
     "semantic:watch": "cd .semantic && npm run semantic:build && gulp watch",
     "lint": "eslint .",
@@ -24,6 +27,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "semantic-ui-react": "^2.0.4",
+    "sharp": "^0.34.5",
     "styled-components": "^5.3.1",
     "swr": "^1.0.1"
   },
